@@ -43,9 +43,9 @@
   </div>
 
   <div id="Lobby"style="opacity: 0; display: none">
-      <h1>Lobby</h1>
+      <!--<h1>Lobby</h1>-->
 
-      <div style="display: block; border: 5px solid black;">
+      <div style="margin-left: 35%; width: 500px; text-align: center; display: block; border: 5px solid black; background-color: #0084b4; font-size: 24px;">
           <p >Player Name 1</p><br>
           <p >Player Name 2</p><br>
           <p >Player Name 3</p><br>
@@ -53,26 +53,43 @@
           <p >Player Name 5</p><br>
           <p >Player Name 6</p><br>
       </div>
+
+      <br>
   
-      <button onclick="goToAnswer()">Start Game</button>
+      <button style="margin-left: 47.5%" onclick="goToAnswer()">Start Game</button>
   </div>
 
   <div id="Answer" style="opacity: 0; display: none">
-      <h1>Answer</h1>
-
+      <!--<h1>Answer</h1>-->
       <br>
       <div style="font-size: 32px; text-align: center;">
           <p>Tweet goes here</p>
-          <p># <input maxlength="25" style="height: 50px; width: 450px; font-size: 32px;" type="text"><br></p>
+          <p># <input id="answer" maxlength="25" style="height: 50px; width: 450px; font-size: 32px;" type="text"><br></p>
           <button onclick="goToVote()">Submit</button>
       </div>
     <script src="answerScript.js"></script>
   </div>
 
-  <div id="Vote" style="opacity: 0; display: none">
-      <h1>Vote</h1>
+  <div id="Vote" style="opacity: 0; display: none;">
+      <!--<h1>Vote</h1>-->
 
-      <div style="display: inline;">
+      <div style="display: inline-block; margin-left: 27.5%; margin-top: 10%;">
+            <button style="padding: 25px 50px 25px 50px">Option 1</button>
+            <div class="spacer"></div>
+            <button style="padding: 25px 50px 25px 50px">Option 2</button>
+            <div class="spacer"></div>
+            <button style="padding: 25px 50px 25px 50px">Option 3</button>
+            <div class="spacer"></div>
+            <br>
+            <br>
+            <br>
+            <button style="padding: 25px 50px 25px 50px">Option 4</button>
+            <div class="spacer"></div>
+            <button style="padding: 25px 50px 25px 50px">Option 5</button>
+            <div class="spacer"></div>
+            <button style="padding: 25px 50px 25px 50px">Option 6</button>
+            <div class="spacer"></div>
+        <!--
           <div style="display: block;">
               <button>Option 1</button>
               <button>Option 2</button>
@@ -85,17 +102,26 @@
               <button>Option 5</button>
               <button>Option 6</button>
           </div>
+        -->
       </div>
   
       <br>
+      <br>
   
-    <button onclick="goToScoreboard()">Submit Answer</button>
+    <button style="margin-left: 45.5%" onclick="goToScoreboard()">Submit Answer</button>
   </div>
 
   <div id="Scoreboard" style="opacity: 0; display: none">
-      <h1>Scoreboard</h1>
+      <!--<h1>Scoreboard</h1>-->
 
-      <div style="border: 5px solid black; display: inline-block;">
+      <div style="margin-left: 35%; width: 500px; text-align: center; display: block; border: 5px solid black; background-color: #0084b4; font-size: 24px;">
+            <p >Player Name 1 & Score</p><br>
+            <p >Player Name 2 & Score</p><br>
+            <p >Player Name 3 & Score</p><br>
+            <p >Player Name 4 & Score</p><br>
+            <p >Player Name 5 & Score</p><br>
+            <p >Player Name 6 & Score</p><br>
+        <!--
             <div style="display: inline">
                 <p style="float: left">Player Name 1</p>
                 <p style="float: right">Score 1</p>
@@ -120,16 +146,17 @@
                     <p style="float: left">Player Name 1</p>
                     <p style="float: right">Score 1</p>
             </div>
+        -->
         </div>
     
         <br>
     
     
-     <button onclick="goToWinner()">Continue to End</button>
+     <button style="margin-left: 46.25%" onclick="goToWinner()">Continue to End</button>
   </div>
 
   <div id="Winner" style="opacity: 0; display: none">
-      <h1>Winner</h1>
+      <!--<h1>Winner</h1>-->
     <div style="font-size: 32px; text-align: center;">
         <p>The winner is: </p>
         <p>Player x</p>

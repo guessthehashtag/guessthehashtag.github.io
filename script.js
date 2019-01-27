@@ -15,6 +15,7 @@ function goToInstr(){
 function goToLobby(){
     var div = document.getElementById("Login");
     div.style = "opacity: 0; display: none;";
+    document.getElementById("username").value = "";
     var div2 = document.getElementById("Lobby");
     div2.style = "opacity: 1; display: block";
 }
@@ -29,6 +30,7 @@ function goToAnswer(){
 function goToVote(){
     var div = document.getElementById("Answer");
     div.style = "opacity: 0; display: none;";
+    document.getElementById("answer").value = "";
     var div2 = document.getElementById("Vote");
     div2.style = "opacity: 1; display: block";
 }
