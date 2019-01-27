@@ -18,6 +18,11 @@ p{
     color: #FFFFFF;
 }
 
+.spacer{
+    display: inline;
+    padding: 25px 50px 25px 50px;
+}
+
 footer{
     background-color: #433e90;
 }
