@@ -1,7 +1,8 @@
 var app = require('express')();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
-var playerCount;
+var playerCount = 0;
+var userNames = [];
 
 app.get('/', function(req, res){
   res.sendFile(__dirname + '/index.html');
@@ -12,8 +13,10 @@ io.on('connection', function(socket){
   playerCount = playerCount + 1;
   socket.on('disconnect', function(){
     console.log('user disconnected');
+    playerCount = playerCount - 1;
   });
   socket.on('chat message', function(msg){
+    console.log(playerCount);
     console.log('message: ' + msg);
     io.emit('chat message', 'server says ' + msg);
   });
