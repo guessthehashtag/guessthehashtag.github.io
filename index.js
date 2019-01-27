@@ -9,6 +9,8 @@ var user3 = new Object();
 var user4 = new Object();
 var user5 = new Object();
 var user6 = new Object();
+//user1.number = 1;
+//user2.number = 2;
 var users = [user1, user2, user3, user4, user5, user6];
 
 
@@ -59,16 +61,16 @@ io.on('connection', function(socket){
   });
   socket.on('uname', function(msg2){
       userNames.push(msg2);
-      console.log(userNames.length);
+      //console.log(userNames.length);
       for (var i = 0; i < users.length; i = i+1) {
         if (users[i].id == socket.id) {
             users[i].name = msg2;
             console.log('user has entered: ' + users[i].name);
             io.emit('uname', msg2);
-            console.log(userNames.length);
+            //console.log(userNames.length);
         }
     }
-    console.log(userNames.length);
+    //console.log(userNames.length);
       //console.log('user has entered: ' + user.name);
       //io.emit('uname', msg2);
   });
@@ -78,6 +80,7 @@ io.on('connection', function(socket){
         if (users[i].id == socket.id) {
             users[i].hashtag = msg3;
             console.log('user has entered: ' + users[i].hashtag);
+            socket.broadcast.emit('gotHash');
         }
     }
     //console.log('user has entered: ' + msg3);
