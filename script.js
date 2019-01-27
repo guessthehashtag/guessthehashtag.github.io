@@ -16,7 +16,7 @@ function goToInstr(){
 function goToLobby(){
     var div = document.getElementById("Login");
     div.style = "opacity: 0; display: none;";
-    document.getElementById("username").value = "";
+    //document.getElementById("username").value = "";
     var div2 = document.getElementById("Lobby");
     div2.style = "opacity: 1; display: block";
 }

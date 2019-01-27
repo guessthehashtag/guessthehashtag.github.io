@@ -39,10 +39,11 @@
         <div style="font-size: 32px; text-align: center;">
           <!-- <p >Enter username: <input id="username" maxlength="16" style="height: 50px; width: 285px; font-size: 32px;" type="text"><br></p> -->
           <form action="">
-            <p><input id="username" maxlength="16" style="height: 50px; width: 285px; font-size: 32px;" type="text"><button>Send</button><br></p>
+            <p><input id="username" maxlength="16" style="height: 50px; width: 285px; font-size: 32px;" type="text">
+                <br><br>
+                <button onclick="goToLobby()">Continue</button><br></p>
             <!--<input type="button" onclick="goToLobby()" value="Continue"> -->
           </form>
-          <br><button onclick="goToLobby()">Continue</button>
         </div>
       </div>
     </div>
@@ -57,9 +58,8 @@
           #lobby li:nth-child(odd) { background: #eee; }
         </style> -->
       <!--<h1>Lobby</h1> -->
-      <ul id="lobby"></ul>
       <div style="margin-left: 35%; width: 500px; text-align: center; display: block; border: 5px solid black; background-color: #0084b4; font-size: 24px;">
-
+            <ul id="lobby" style="list-style-type: decimal;"></ul>
       </div>
       <!--<div style="display: block; border: 5px solid black;">
           <p >Player Name 1</p><br>
