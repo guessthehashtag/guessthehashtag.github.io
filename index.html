@@ -37,16 +37,22 @@
   </div>
 
   <div id="Lobby" style="opacity: 0">
+      <style>
+          * { margin: 0; padding: 0; box-sizing: border-box; }          
+          #lobby { list-style-type: none; margin: 0; padding: 0; }
+          #lobby li { padding: 5px 10px; }
+          #lobby li:nth-child(odd) { background: #eee; }
+        </style>
       <h1>Lobby</h1>
-
-      <div style="display: block; border: 5px solid black;">
+      <ul id="lobby"></ul>
+      <!--<div style="display: block; border: 5px solid black;">
           <p >Player Name 1</p><br>
           <p >Player Name 2</p><br>
           <p >Player Name 3</p><br>
           <p >Player Name 4</p><br>
           <p >Player Name 5</p><br>
           <p >Player Name 6</p><br>
-      </div>
+      </div> -->
   
       <button onclick="goToAnswer()">Start Game</button>
   </div>
@@ -153,6 +159,9 @@
       socket.emit('uname', $('#username').val());
       $('#username').val('');
       return false;
+    });
+    socket.on('uname', function(msg){
+      $('#lobby').append($('<li>').text(msg));
     });
     //var usrSubmit = document.getElementById("username");
   });
