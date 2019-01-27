@@ -38,7 +38,7 @@
         <br>
         <div style="font-size: 32px; text-align: center;">
           <!-- <p >Enter username: <input id="username" maxlength="16" style="height: 50px; width: 285px; font-size: 32px;" type="text"><br></p> -->
-          <form action="">
+          <form id = "usernameForm" action="">
             <p><input id="username" maxlength="16" style="height: 50px; width: 285px; font-size: 32px;" type="text">
                 <br><br>
                 <button onclick="goToLobby()">Continue</button><br></p>
@@ -77,8 +77,8 @@
 
       <br>
       <div style="font-size: 32px; text-align: center;">
-        <p>Tweet goes here</p>
-        <form action="">
+        <p style="margin-left: 32.5%; border: 5px solid black; background: white; color: #14171A; width: 500px; height: 200px;">One time at a drive-thru I was placing a long order, and at the end of it I realized I was talking to a garbage can.</p>
+        <form id = "answerForm" action="">
           <p># <input id="htag" maxlength="16" style="height: 50px; width: 285px; font-size: 32px;" type="text"><button>Send</button><br></p>
         </form>
         <!--<p># <input maxlength="25" style="height: 50px; width: 450px; font-size: 32px;" type="text"><br></p> -->
@@ -197,7 +197,7 @@
     socket.on('chat message', function(msg){
       $('#messages').append($('<li>').text(msg));
     });*/
-    $('form').submit(function (e) {
+    $('#usernameForm').submit(function (e) {
       e.preventDefault(); // prevents page reloading
       socket.emit('uname', $('#username').val());
       //socket.emit('uname', window.location.search.substring(index, window.location.search.length-1));
@@ -205,10 +205,13 @@
       $('#username').val('');
       return false;
     });
-    socket.on('uname', function (msg) {
-      $('#lobby').append($('<li>').text(msg));
+    socket.on('uname', function (userNames) {
+      for(var i = 0; i < userNames.length; ++i)
+      {
+        $('#lobby').append($('<li>').text(userNames[i]));      
+      }
     });
-    $('form').submit(function (f) {
+    $('#answerForm').submit(function (f) {
       f.preventDefault(); // prevents page reloading
       socket.emit('hash', $('#htag').val());
       //window.location.search += $('#username').val();
