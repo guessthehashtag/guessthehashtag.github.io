@@ -10,20 +10,20 @@
 </head>
 
 <body>
-  <div id="splashScreen">
+  <div id="splashScreen" style="opacity: 1; display: block">
     <h1>Guess the Hashtag</h1>
     <button onclick="goToLogin()">Start</button>
     <br><br>
     <button onclick="goToInstr()">Instructions</button>
   </div>
 
-  <div id="Instr" style="opacity: 0">
+  <div id="Instr" style="opacity: 0; display: none">
       <h1>Instructions Page</h1>
       <p>Enter instructions here</p>
-      <button>Back</button>
+      <button onclick="goToSplashScreen()">Back</button>
   </div>
 
-  <div id="Login" style="opacity: 0">
+  <div id="Login" style="opacity: 0; display: none">
       <h1>Login Page</h1>
       <br>
       <div style="font-size: 32px; text-align: center;">
@@ -32,7 +32,7 @@
       </div>
   </div>
 
-  <div id="Lobby" style="opacity: 0">
+  <div id="Lobby"style="opacity: 0; display: none">
       <h1>Lobby</h1>
 
       <div style="display: block; border: 5px solid black;">
@@ -47,7 +47,7 @@
       <button onclick="goToAnswer()">Start Game</button>
   </div>
 
-  <div id="Answer" style="opacity: 0">
+  <div id="Answer" style="opacity: 0; display: none">
       <h1>Answer</h1>
 
       <br>
@@ -59,7 +59,7 @@
     <script src="answerScript.js"></script>
   </div>
 
-  <div id="Vote" style="opacity: 0">
+  <div id="Vote" style="opacity: 0; display: none">
       <h1>Vote</h1>
 
       <div style="display: inline;">
@@ -82,7 +82,7 @@
     <button onclick="goToScoreboard()">Submit Answer</button>
   </div>
 
-  <div id="Scoreboard" style="opacity: 0">
+  <div id="Scoreboard" style="opacity: 0; display: none">
       <h1>Scoreboard</h1>
 
       <div style="border: 5px solid black; display: inline-block;">
@@ -118,7 +118,7 @@
      <button onclick="goToWinner()">Continue to End</button>
   </div>
 
-  <div id="Winner" style="opacity: 0">
+  <div id="Winner" style="opacity: 0; display: none">
       <h1>Winner</h1>
     <div style="font-size: 32px; text-align: center;">
         <p>The winner is: </p>
