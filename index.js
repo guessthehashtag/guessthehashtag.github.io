@@ -3,6 +3,8 @@ var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var playerCount = 0;
 var userNames = [];
+var user = new Object();
+
 
 app.get('/', function(req, res){
   res.sendFile(__dirname + '/index.html');
