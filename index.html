@@ -27,13 +27,12 @@
       <h1>Login Page</h1>
       <br>
       <div style="font-size: 32px; text-align: center;">
-          <p >Enter username: <input id="username" maxlength="16" style="height: 50px; width: 285px; font-size: 32px;" type="text"><br></p>
-          <form id="frm1" action="/action_page.php">
-            First name: <input type="text" name="fname"><br>
-            Last name: <input type="text" name="lname"><br><br>
-            <input type="button" onclick="goToLobby()" value="Continue">
+          <!-- <p >Enter username: <input id="username" maxlength="16" style="height: 50px; width: 285px; font-size: 32px;" type="text"><br></p> -->
+          <form action="">
+            <p >Enter username: <input id="username" maxlength="16" style="height: 50px; width: 285px; font-size: 32px;" type="text"><button>Send</button><br></p>
+            <!--<input type="button" onclick="goToLobby()" value="Continue"> -->
           </form>
-          <!-- <button onclick="goToLobby()">Continue</button> -->
+           <button onclick="goToLobby()">Continue</button> 
       </div>
   </div>
 
@@ -140,7 +139,7 @@
 <script>
   $(function () {
     var socket = io();
-    $('form').submit(function(e){
+    /*$('form').submit(function(e){
       e.preventDefault(); // prevents page reloading
       socket.emit('chat message', $('#m').val());
       $('#m').val('');
@@ -148,8 +147,15 @@
     });
     socket.on('chat message', function(msg){
       $('#messages').append($('<li>').text(msg));
+    });*/
+    $('form').submit(function(e){
+      e.preventDefault(); // prevents page reloading
+      socket.emit('uname', $('#username').val());
+      $('#username').val('');
+      return false;
     });
     //var usrSubmit = document.getElementById("username");
   });
+  
 </script>
 </html>

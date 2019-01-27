@@ -28,6 +28,9 @@ io.on('connection', function(socket){
     console.log('user disconnected');
     playerCount = playerCount - 1;
   });
+  socket.on('uname', function(msg2){
+      console.log('user has entered: ' + msg2);
+  });
   socket.on('chat message', function(msg){
     console.log(playerCount);
     console.log('message: ' + msg);

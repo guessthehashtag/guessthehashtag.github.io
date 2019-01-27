@@ -13,6 +13,14 @@ function goToInstr(){
 }
 
 function goToLobby(){
+    console.log("in here");
+    /*var usr = document.getElementById("frm1");
+    var text = "";
+    var i;
+    for (i = 0; i < x.length ;i++) {
+      text += usr.elements[i].value + "<br>";
+    }
+    socket.emit('username', text);*/
     var div = document.getElementById("Login");
     div.style.opacity = "0";
     var div2 = document.getElementById("Lobby");
