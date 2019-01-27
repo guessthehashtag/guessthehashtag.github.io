@@ -29,7 +29,11 @@ io.on('connection', function(socket){
     playerCount = playerCount - 1;
   });
   socket.on('uname', function(msg2){
-      console.log('user has entered: ' + msg2);
+      userNames.push(msg2);
+      if (userNames.length > 1) {
+        console.log('user has entered: ' + userNames[1]);
+      }
+      console.log('user has entered: ' + userNames[0]);
   });
   socket.on('chat message', function(msg){
     console.log(playerCount);
