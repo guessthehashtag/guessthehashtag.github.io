@@ -35,12 +35,12 @@ io.on('connection', function(socket){
       /*if (userNames.length > 1) {
         console.log('user has entered: ' + userNames[1]);
       }*/
-      console.log('user has entered: ' + userNames[userNames.length-1]);
+      console.log('user has entered username: ' + userNames[userNames.length-1]);
       io.emit('uname', userNames);
   });
   socket.on('hash', function(msg3){
     userNames.push(msg3);
-    console.log('user has entered: ' + msg3);
+    console.log('user has entered hashtag: ' + msg3);
     //io.emit('uname', msg2);
 });
   socket.on('chat message', function(msg){
