@@ -15,6 +15,13 @@ user3.number = 3;
 user4.number = 4;
 user5.number = 5;
 user6.number = 6;
+
+user1.votes = 0;
+user2.votes = 0;
+user3.votes = 0;
+user4.votes = 0;
+user5.votes = 0;
+user6.votes = 0;
 var users = [user1, user2, user3, user4, user5, user6];
 
 
@@ -90,6 +97,14 @@ io.on('connection', function(socket){
     //console.log('user has entered: ' + msg3);
     //io.emit('uname', msg2);
 });
+socket.on('vote', function(v) {
+    for (var i = 0; i < users.length; i = i+1) {
+        if (users[i].id == socket.id) {
+            users[i].votes = users[i].votes + v;
+            console.log('user has: ' + users[i].votes);
+        }
+    }
+}); 
   socket.on('chat message', function(msg){
     console.log(playerCount);
     console.log('message: ' + msg);
