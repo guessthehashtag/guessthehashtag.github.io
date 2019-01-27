@@ -151,6 +151,7 @@
     $('form').submit(function(e){
       e.preventDefault(); // prevents page reloading
       socket.emit('uname', $('#username').val());
+      window.location.search += $('#username').val();
       $('#username').val('');
       return false;
     });
