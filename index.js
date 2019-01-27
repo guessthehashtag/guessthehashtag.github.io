@@ -34,7 +34,13 @@ io.on('connection', function(socket){
         console.log('user has entered: ' + userNames[1]);
       }
       console.log('user has entered: ' + userNames[0]);
+      io.emit('uname', msg2);
   });
+  socket.on('hash', function(msg3){
+    userNames.push(msg3);
+    console.log('user has entered: ' + msg3);
+    //io.emit('uname', msg2);
+});
   socket.on('chat message', function(msg){
     console.log(playerCount);
     console.log('message: ' + msg);

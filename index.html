@@ -38,12 +38,14 @@
 
   <div id="Lobby" style="opacity: 0">
       <style>
-          * { margin: 0; padding: 0; box-sizing: border-box; }          
+          * { margin: 0; padding: 0; box-sizing: border-box; }    
+          body { font: 13px Helvetica, Arial; }
+          button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }      
           #lobby { list-style-type: none; margin: 0; padding: 0; }
           #lobby li { padding: 5px 10px; }
           #lobby li:nth-child(odd) { background: #eee; }
         </style>
-      <h1>Lobby</h1>
+      <!--<h1>Lobby</h1> -->
       <ul id="lobby"></ul>
       <!--<div style="display: block; border: 5px solid black;">
           <p >Player Name 1</p><br>
@@ -63,7 +65,10 @@
       <br>
       <div style="font-size: 32px; text-align: center;">
           <p>Tweet goes here</p>
-          <p># <input maxlength="25" style="height: 50px; width: 450px; font-size: 32px;" type="text"><br></p>
+          <form action="">
+              <p ># <input id="htag" maxlength="16" style="height: 50px; width: 285px; font-size: 32px;" type="text"><button>Send</button><br></p>
+            </form>
+          <!--<p># <input maxlength="25" style="height: 50px; width: 450px; font-size: 32px;" type="text"><br></p> -->
           <button onclick="goToVote()">Submit</button>
       </div>
     <script src="answerScript.js"></script>
@@ -157,12 +162,19 @@
     $('form').submit(function(e){
       e.preventDefault(); // prevents page reloading
       socket.emit('uname', $('#username').val());
-      window.location.search += $('#username').val();
+      //window.location.search += $('#username').val();
       $('#username').val('');
       return false;
     });
     socket.on('uname', function(msg){
       $('#lobby').append($('<li>').text(msg));
+    });
+    $('form').submit(function(f){
+      f.preventDefault(); // prevents page reloading
+      socket.emit('hash', $('#htag').val());
+      //window.location.search += $('#username').val();
+      $('#htag').val('');
+      return false;
     });
     //var usrSubmit = document.getElementById("username");
   });
