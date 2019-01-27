@@ -59,3 +59,4 @@ function goToSplashScreen(){
     var div2 = document.getElementById("splashScreen");
     div2.style = "opacity: 1; display: block";
 }
+
