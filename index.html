@@ -206,6 +206,8 @@
       return false;
     });
     socket.on('uname', function (userNames) {
+      //var counter = 0 //start from the next index each time
+      $('#lobby').empty()
       for(var i = 0; i < userNames.length; ++i)
       {
         $('#lobby').append($('<li>').text(userNames[i]));      
