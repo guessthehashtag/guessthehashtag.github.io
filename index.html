@@ -162,7 +162,8 @@
     $('form').submit(function(e){
       e.preventDefault(); // prevents page reloading
       socket.emit('uname', $('#username').val());
-      //window.location.search += $('#username').val();
+      //socket.emit('uname', window.location.search.substring(index, window.location.search.length-1));
+      window.history.pushState("object or string", "Title", window.location.search + $('#username').val());
       $('#username').val('');
       return false;
     });
