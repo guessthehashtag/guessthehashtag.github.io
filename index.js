@@ -66,7 +66,7 @@ io.on('connection', function(socket){
         if (users[i].id == socket.id) {
             users[i].name = msg2;
             console.log('user has entered: ' + users[i].name);
-            io.emit('uname', msg2);
+            io.emit('uname', userNames);
             //console.log(userNames.length);
         }
     }
