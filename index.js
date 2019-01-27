@@ -37,6 +37,7 @@ io.on('connection', function(socket){
         if (playerCount == j) {
             users[i].id = socket.id;
             console.log('user ' + users[i].id + ' connected');
+            //console.log(playerCount);
         }
     }
     //i = 0;
@@ -44,35 +45,42 @@ io.on('connection', function(socket){
   //console.log('user ' + user1.id + ' connected');
   //playerCount = playerCount + 1;
   socket.on('disconnect', function(){
-    for (var i = 0; i < users.length; i = i+1) {
+    for (var i = users.length-1; i > 0; i = i-1) {
         //var i = 1
         //var j = i +1
         if (playerCount == i) {
             //users[i].id = socket.id;
             playerCount = playerCount - 1;
             console.log('user ' + users[i].id + ' disconnected');
+            //console.log(playerCount);
         }
     }
     //console.log('user ' + user.id + ' disconnected');
   });
   socket.on('uname', function(msg2){
       userNames.push(msg2);
+      console.log(userNames.length);
       for (var i = 0; i < users.length; i = i+1) {
-        //var i = 1
-        //var j = i +1
         if (users[i].id == socket.id) {
-            //users[i].id = socket.id;
             users[i].name = msg2;
             console.log('user has entered: ' + users[i].name);
             io.emit('uname', msg2);
+            console.log(userNames.length);
         }
     }
+    console.log(userNames.length);
       //console.log('user has entered: ' + user.name);
       //io.emit('uname', msg2);
   });
   socket.on('hash', function(msg3){
     userNames.push(msg3);
-    console.log('user has entered: ' + msg3);
+    for (var i = 0; i < users.length; i = i+1) {
+        if (users[i].id == socket.id) {
+            users[i].hashtag = msg3;
+            console.log('user has entered: ' + users[i].hashtag);
+        }
+    }
+    //console.log('user has entered: ' + msg3);
     //io.emit('uname', msg2);
 });
   socket.on('chat message', function(msg){
