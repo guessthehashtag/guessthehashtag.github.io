@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Guess the Hashtag</title>
+  <title>Hash It Out</title>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,43 +10,57 @@
 </head>
 
 <body>
-  <div id="splashScreen">
-    <h1>Guess the Hashtag</h1>
-    <button onclick="goToLogin()">Start</button>
-    <br><br>
-    <button onclick="goToInstr()">Instructions</button>
-  </div>
+  <div id="splashScreen" style="opacity: 1; display: block;">
+    <div style="margin-top: 16%; font-size: 32px;">
+      <h1 style="text-align:center;">#LetsHashItOut</h1>
 
-  <div id="Instr" style="opacity: 0">
-      <h1>Instructions Page</h1>
-      <p>Enter instructions here</p>
-      <a href="Index.html"><button>Back</button></a>
-  </div>
-
-  <div id="Login" style="opacity: 0">
-      <h1>Login Page</h1>
-      <br>
       <div style="font-size: 32px; text-align: center;">
+        <button onclick="goToLogin()">Start</button>
+        <br><br>
+        <button onclick="goToInstr()">Instructions</button>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div id="Instr" style="opacity: 0; display: none;">
+    <div style="font-size: 25px; text-align: center;">
+      <h1>Instructions</h1>
+      <p>Enter instructions here</p>
+      <button onclick="goToSplashScreen()">Back</button>
+    </div>
+  </div>
+
+    <div id="Login" style="opacity: 0; display: none;">
+      <div style="font-size: 20px; text-align: center; margin-top: 16%;">
+        <h1>Enter Username</h1>
+        <br>
+        <div style="font-size: 32px; text-align: center;">
           <!-- <p >Enter username: <input id="username" maxlength="16" style="height: 50px; width: 285px; font-size: 32px;" type="text"><br></p> -->
           <form action="">
-            <p >Enter username: <input id="username" maxlength="16" style="height: 50px; width: 285px; font-size: 32px;" type="text"><button>Send</button><br></p>
+            <p><input id="username" maxlength="16" style="height: 50px; width: 285px; font-size: 32px;" type="text"><button>Send</button><br></p>
             <!--<input type="button" onclick="goToLobby()" value="Continue"> -->
           </form>
-           <button onclick="goToLobby()">Continue</button> 
+          <br><button onclick="goToLobby()">Continue</button>
+        </div>
       </div>
-  </div>
+    </div>
 
-  <div id="Lobby" style="opacity: 0">
-      <style>
+    <div id="Lobby" style="opacity: 0; display: none">
+      <!-- <style>
           * { margin: 0; padding: 0; box-sizing: border-box; }    
           body { font: 13px Helvetica, Arial; }
           button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }      
           #lobby { list-style-type: none; margin: 0; padding: 0; }
           #lobby li { padding: 5px 10px; }
           #lobby li:nth-child(odd) { background: #eee; }
-        </style>
+        </style> -->
       <!--<h1>Lobby</h1> -->
       <ul id="lobby"></ul>
+      <div style="margin-left: 35%; width: 500px; text-align: center; display: block; border: 5px solid black; background-color: #0084b4; font-size: 24px;">
+
+      </div>
       <!--<div style="display: block; border: 5px solid black;">
           <p >Player Name 1</p><br>
           <p >Player Name 2</p><br>
@@ -55,29 +69,43 @@
           <p >Player Name 5</p><br>
           <p >Player Name 6</p><br>
       </div> -->
-  
-      <button onclick="goToAnswer()">Start Game</button>
-  </div>
 
-  <div id="Answer" style="opacity: 0">
-      <h1>Answer</h1>
+      <button style="margin-left: 47.5%" onclick="goToAnswer()">Start Game</button>
+    </div>
+    <br>
+    <div id="Answer" style="opacity: 0; display: none">
 
       <br>
       <div style="font-size: 32px; text-align: center;">
-          <p>Tweet goes here</p>
-          <form action="">
-              <p ># <input id="htag" maxlength="16" style="height: 50px; width: 285px; font-size: 32px;" type="text"><button>Send</button><br></p>
-            </form>
-          <!--<p># <input maxlength="25" style="height: 50px; width: 450px; font-size: 32px;" type="text"><br></p> -->
-          <button onclick="goToVote()">Submit</button>
+        <p>Tweet goes here</p>
+        <form action="">
+          <p># <input id="htag" maxlength="16" style="height: 50px; width: 285px; font-size: 32px;" type="text"><button>Send</button><br></p>
+        </form>
+        <!--<p># <input maxlength="25" style="height: 50px; width: 450px; font-size: 32px;" type="text"><br></p> -->
+        <button onclick="goToVote()">Submit</button>
       </div>
-    <script src="answerScript.js"></script>
-  </div>
+    </div>
 
-  <div id="Vote" style="opacity: 0">
-      <h1>Vote</h1>
+    <div id="Vote" style="opacity: 0; display: none;">
+      <!--<h1>Vote</h1>-->
 
-      <div style="display: inline;">
+      <div style="display: inline-block; margin-left: 27.5%; margin-top: 10%;">
+        <button style="padding: 25px 50px 25px 50px">Option 1</button>
+        <div class="spacer"></div>
+        <button style="padding: 25px 50px 25px 50px">Option 2</button>
+        <div class="spacer"></div>
+        <button style="padding: 25px 50px 25px 50px">Option 3</button>
+        <div class="spacer"></div>
+        <br>
+        <br>
+        <br>
+        <button style="padding: 25px 50px 25px 50px">Option 4</button>
+        <div class="spacer"></div>
+        <button style="padding: 25px 50px 25px 50px">Option 5</button>
+        <div class="spacer"></div>
+        <button style="padding: 25px 50px 25px 50px">Option 6</button>
+        <div class="spacer"></div>
+        <!--
           <div style="display: block;">
               <button>Option 1</button>
               <button>Option 2</button>
@@ -90,17 +118,26 @@
               <button>Option 5</button>
               <button>Option 6</button>
           </div>
+        -->
       </div>
-  
+
       <br>
-  
-    <button onclick="goToScoreboard()">Submit Answer</button>
-  </div>
+      <br>
 
-  <div id="Scoreboard" style="opacity: 0">
-      <h1>Scoreboard</h1>
+      <button style="margin-left: 45.5%" onclick="goToScoreboard()">Submit Answer</button>
+    </div>
 
-      <div style="border: 5px solid black; display: inline-block;">
+    <div id="Scoreboard" style="opacity: 0; display: none">
+      <!--<h1>Scoreboard</h1>-->
+
+      <div style="margin-left: 35%; width: 500px; text-align: center; display: block; border: 5px solid black; background-color: #0084b4; font-size: 24px;">
+        <p>Player Name 1 & Score</p><br>
+        <p>Player Name 2 & Score</p><br>
+        <p>Player Name 3 & Score</p><br>
+        <p>Player Name 4 & Score</p><br>
+        <p>Player Name 5 & Score</p><br>
+        <p>Player Name 6 & Score</p><br>
+        <!--
             <div style="display: inline">
                 <p style="float: left">Player Name 1</p>
                 <p style="float: right">Score 1</p>
@@ -125,25 +162,26 @@
                     <p style="float: left">Player Name 1</p>
                     <p style="float: right">Score 1</p>
             </div>
-        </div>
-    
-        <br>
-    
-    
-     <button onclick="goToWinner()">Continue to End</button>
-  </div>
+        -->
+      </div>
 
-  <div id="Winner" style="opacity: 0">
-      <h1>Winner</h1>
-    <div style="font-size: 32px; text-align: center;">
+      <br>
+
+
+      <button style="margin-left: 46.25%" onclick="goToWinner()">Continue to End</button>
+    </div>
+
+    <div id="Winner" style="opacity: 0; display: none">
+      <!--<h1>Winner</h1>-->
+      <div style="font-size: 32px; text-align: center;">
         <p>The winner is: </p>
         <p>Player x</p>
-       <button onclick="goToSplashScreen()">Home</button>
+        <button onclick="goToSplashScreen()">Home</button>
+      </div>
     </div>
-  </div>
 
 
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 <script src="/socket.io/socket.io.js"></script>
 <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
@@ -159,7 +197,7 @@
     socket.on('chat message', function(msg){
       $('#messages').append($('<li>').text(msg));
     });*/
-    $('form').submit(function(e){
+    $('form').submit(function (e) {
       e.preventDefault(); // prevents page reloading
       socket.emit('uname', $('#username').val());
       //socket.emit('uname', window.location.search.substring(index, window.location.search.length-1));
@@ -167,10 +205,10 @@
       $('#username').val('');
       return false;
     });
-    socket.on('uname', function(msg){
+    socket.on('uname', function (msg) {
       $('#lobby').append($('<li>').text(msg));
     });
-    $('form').submit(function(f){
+    $('form').submit(function (f) {
       f.preventDefault(); // prevents page reloading
       socket.emit('hash', $('#htag').val());
       //window.location.search += $('#username').val();
@@ -179,6 +217,7 @@
     });
     //var usrSubmit = document.getElementById("username");
   });
-  
+
 </script>
+
 </html>
