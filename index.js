@@ -3,6 +3,7 @@ var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var playerCount = 0;
 var userNames = [];
+var buttonNames = [];
 var user1 = new Object();
 var user2 = new Object();
 var user3 = new Object();
@@ -79,12 +80,12 @@ io.on('connection', function(socket){
       //io.emit('uname', msg2);
   });
   socket.on('hash', function(msg3){
-    userNames.push(msg3);
+    //userNames.push(msg3);
     for (var i = 0; i < users.length; i = i+1) {
         if (users[i].id == socket.id) {
             users[i].hashtag = msg3;
             console.log('user has entered: ' + users[i].hashtag);
-            io.emit('gotHash', users[i].hashtag);
+            io.emit('gotHash', users[i].hashtag, users[i].number, buttonNames);
         }
     }
     //console.log('user has entered: ' + msg3);

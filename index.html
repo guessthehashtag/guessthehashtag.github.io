@@ -24,7 +24,7 @@
 
 
 
-  <div id="Instr" style="opacity: 0; display: none;">
+  <div id="Instr" style="opacity: 1; display: none;">
     <div style="font-size: 25px; text-align: center;">
       <h1>Instructions</h1>
       <p>Enter instructions here</p>
@@ -32,7 +32,7 @@
     </div>
   </div>
 
-    <div id="Login" style="opacity: 0; display: none;">
+    <div id="Login" style="opacity: 1; display: none;">
       <div style="font-size: 20px; text-align: center; margin-top: 16%;">
         <h1>Enter Username</h1>
         <br>
@@ -48,7 +48,7 @@
       </div>
     </div>
 
-    <div id="Lobby" style="opacity: 0; display: none">
+    <div id="Lobby" style="opacity: 1; display: none">
       <!-- <style>
           * { margin: 0; padding: 0; box-sizing: border-box; }    
           body { font: 13px Helvetica, Arial; }
@@ -73,7 +73,7 @@
       <button style="margin-left: 47.5%" onclick="goToAnswer()">Start Game</button>
     </div>
     <br>
-    <div id="Answer" style="opacity: 0; display: none">
+    <div id="Answer" style="opacity: 1; display: none">
 
       <br>
       <div style="font-size: 32px; text-align: center;">
@@ -86,24 +86,24 @@
       </div>
     </div>
 
-    <div id="Vote" style="opacity: 0; display: none;">
+    <div id="Vote" style="opacity: 1; display: none;">
       <!--<h1>Vote</h1>-->
 
       <div style="display: inline-block; margin-left: 27.5%; margin-top: 10%;">
-        <button style="padding: 25px 50px 25px 50px">Option 1</button>
+        <button disabled="true" id = "button1" style="padding: 25px 50px 25px 50px; opacity: 1;">Option 1</button>
         <div class="spacer"></div>
-        <button style="padding: 25px 50px 25px 50px">Option 2</button>
+        <button disabled="true" id = "button2" style="padding: 25px 50px 25px 50px; opacity: 1;">Option 2</button>
         <div class="spacer"></div>
-        <button style="padding: 25px 50px 25px 50px">Option 3</button>
+        <button disabled="true" id = "button3" style="padding: 25px 50px 25px 50px; opacity: 1;">Option 3</button>
         <div class="spacer"></div>
         <br>
         <br>
         <br>
-        <button style="padding: 25px 50px 25px 50px">Option 4</button>
+        <button disabled="true" id = "button4" style="padding: 25px 50px 25px 50px; opacity: 1;">Option 4</button>
         <div class="spacer"></div>
-        <button style="padding: 25px 50px 25px 50px">Option 5</button>
+        <button disabled="true" id = "button5" style="padding: 25px 50px 25px 50px; opacity: 1;">Option 5</button>
         <div class="spacer"></div>
-        <button style="padding: 25px 50px 25px 50px">Option 6</button>
+        <button disabled="true" id = "button6" style="padding: 25px 50px 25px 50px; opacity: 1;">Option 6</button>
         <div class="spacer"></div>
         <!--
           <div style="display: block;">
@@ -127,7 +127,7 @@
       <button style="margin-left: 45.5%" onclick="goToScoreboard()">Submit Answer</button>
     </div>
 
-    <div id="Scoreboard" style="opacity: 0; display: none">
+    <div id="Scoreboard" style="opacity: 1; display: none">
       <!--<h1>Scoreboard</h1>-->
 
       <div style="margin-left: 35%; width: 500px; text-align: center; display: block; border: 5px solid black; background-color: #0084b4; font-size: 24px;">
@@ -171,7 +171,7 @@
       <button style="margin-left: 46.25%" onclick="goToWinner()">Continue to End</button>
     </div>
 
-    <div id="Winner" style="opacity: 0; display: none">
+    <div id="Winner" style="opacity: 1; display: none">
       <!--<h1>Winner</h1>-->
       <div style="font-size: 32px; text-align: center;">
         <p>The winner is: </p>
@@ -215,9 +215,61 @@
     $('#answerForm').submit(function (f) {
       f.preventDefault(); // prevents page reloading
       socket.emit('hash', $('#htag').val());
-      //window.location.search += $('#username').val();
+      
       $('#htag').val('');
       return false;
+    });
+    socket.on('gotHash', function(htag, number, buttonNames){
+      //button + string(number)
+    var butt = document.getElementById("button" + number);
+    butt.innerHTML ="#" + htag;
+    buttonNames.push(butt.innerHTML);
+
+    
+    for(var i = 0; i < buttonNames.length; ++i)
+    {
+      document.getElementById("button" + i).innerHTML = "";
+    }
+    for(var i = 0; i < buttonNames.length; ++i)
+    {
+      document.getElementById("button" + i).innerHTML = buttonNames[i];
+    }
+
+    var b1 = document.getElementById("button1");
+    if (b1.innerHTML.search("#") == -1)
+    {
+      b1.style.opacity = "0";
+    }
+    var b2 =document.getElementById("button2");
+    if (b2.innerHTML.search("#") == -1)
+    {
+      b2.style.opacity = "0";
+    }
+    var b3 = document.getElementById("button3");
+    if (b3.innerHTML.search("#") == -1)
+    {
+      b3.style.opacity = "0";
+    }
+    var b4 = document.getElementById("button4");
+    if (b4.innerHTML.search("#") == -1)
+    {
+      b4.style.opacity = "0";
+    }
+    var b5 = document.getElementById("button5");
+    if (b5.innerHTML.search("#") == -1)
+    {
+      b5.style.opacity = "0";
+    }
+    var b6 = document.getElementById("button6");
+         
+    b6.innerHTML = "";
+    console.log("here");
+    if (b6.innerHTML.search("#") == -1)
+    {
+
+      b6.style = "opacity: 0";
+    }
+    //butt.style = "disabled: false; opacity: 1;";
     });
     //var usrSubmit = document.getElementById("username");
   });
