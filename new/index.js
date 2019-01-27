@@ -1,59 +1,25 @@
 var app = require('express')();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
-var playerCount = 0;
-var userNames = [];
-var user = new Object();
-
 
 app.get('/', function(req, res){
   res.sendFile(__dirname + '/index.html');
 });
-app.get ('/styles.css', function (req, res) {
-    res.sendFile(__dirname + "/" + "styles.css");
-});
-app.get ('/script.js', function (req, res) {
-    res.sendFile(__dirname + "/" + "script.js");
-});
 
-/*
-app.get('/Login.html', function(req, res){
-    res.sendFile(__dirname + "/Login.html");
-  });
-  app.get('/Lobby.html', function(req, res){
-    res.sendFile(__dirname + "/Lobby.html");
-  });*/
 io.on('connection', function(socket){
   console.log('a user connected');
-  playerCount = playerCount + 1;
   socket.on('disconnect', function(){
     console.log('user disconnected');
-    playerCount = playerCount - 1;
   });
-  socket.on('uname', function(msg2){
-      userNames.push(msg2);
-      /*if (userNames.length > 1) {
-        console.log('user has entered: ' + userNames[1]);
-      }*/
-      console.log('user has entered: ' + userNames[userNames.length-1]);
-      io.emit('uname', userNames);
-  });
-  socket.on('hash', function(msg3){
-    userNames.push(msg3);
-    console.log('user has entered: ' + msg3);
-    //io.emit('uname', msg2);
-});
   socket.on('chat message', function(msg){
-    console.log(playerCount);
     console.log('message: ' + msg);
-    io.emit('chat message', 'server says ' + msg);
+    io.emit('chat message', msg);
   });
 });
 
-http.listen(3000, function(){
-  console.log('listening on *:3000');
+http.listen(1337, function(){
+  console.log('listening on *:1337');
 });
-
 
 /*var http = require('http');
 
@@ -88,4 +54,4 @@ client.on('close', function() {
 	console.log('Connection closed');
 });
 */
-//http://localhost:3000
+//http://localhost:1337

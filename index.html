@@ -205,8 +205,11 @@
       $('#username').val('');
       return false;
     });
-    socket.on('uname', function (msg) {
-      $('#lobby').append($('<li>').text(msg));
+    socket.on('uname', function (userNames) {
+      for(var i = 0; i < userNames.length; ++i)
+      {
+        $('#lobby').append($('<li>').text(userNames[i]));      
+      }
     });
     $('form').submit(function (f) {
       f.preventDefault(); // prevents page reloading
