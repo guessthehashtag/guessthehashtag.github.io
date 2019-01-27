@@ -10,12 +10,17 @@ app.get('/', function(req, res){
 app.get ('/styles.css', function (req, res) {
     res.sendFile(__dirname + "/" + "styles.css");
 });
+app.get ('/script.js', function (req, res) {
+    res.sendFile(__dirname + "/" + "script.js");
+});
+
+/*
 app.get('/Login.html', function(req, res){
     res.sendFile(__dirname + "/Login.html");
   });
   app.get('/Lobby.html', function(req, res){
     res.sendFile(__dirname + "/Lobby.html");
-  });
+  });*/
 io.on('connection', function(socket){
   console.log('a user connected');
   playerCount = playerCount + 1;
@@ -30,9 +35,10 @@ io.on('connection', function(socket){
   });
 });
 
-http.listen(1337, function(){
-  console.log('listening on *:1337');
+http.listen(3000, function(){
+  console.log('listening on *:3000');
 });
+
 
 /*var http = require('http');
 
@@ -67,4 +73,4 @@ client.on('close', function() {
 	console.log('Connection closed');
 });
 */
-//http://localhost:1337
+//http://localhost:3000
