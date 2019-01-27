@@ -1,4 +1,5 @@
 function goToLogin(){
+    //console.log("function called")
     var div = document.getElementById("splashScreen");
     div.style = "opacity: 0; display: none;";
     var div2 = document.getElementById("Login");
@@ -28,9 +29,10 @@ function goToAnswer(){
 }
 
 function goToVote(){
+    console.log("hi");
     var div = document.getElementById("Answer");
     div.style = "opacity: 0; display: none;";
-    document.getElementById("answer").value = "";
+    document.getElementById("htag").value = "";
     var div2 = document.getElementById("Vote");
     div2.style = "opacity: 1; display: block";
 }
