@@ -5,9 +5,17 @@ var playerCount = 0;
 var userNames = [];
 
 app.get('/', function(req, res){
-  res.sendFile(__dirname + '/testclient.html');
+  res.sendFile(__dirname + '/index.html');
 });
-
+app.get ('/styles.css', function (req, res) {
+    res.sendFile(__dirname + "/" + "styles.css");
+});
+app.get('/Login.html', function(req, res){
+    res.sendFile(__dirname + "/Login.html");
+  });
+  app.get('/Lobby.html', function(req, res){
+    res.sendFile(__dirname + "/Lobby.html");
+  });
 io.on('connection', function(socket){
   console.log('a user connected');
   playerCount = playerCount + 1;
