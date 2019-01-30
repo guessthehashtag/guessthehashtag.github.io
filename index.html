@@ -12,6 +12,7 @@
 <body>
   <div id="splashScreen" style="opacity: 1; display: block;">
     <div style="margin-top: 16%; font-size: 32px;">
+      <img src=http://www.transparentpng.com/thumb/twitter/twitter-png-transparent-images-black-background-28.png width="275" height="275" style="position: absolute; top: 0px; left: 41.7%;">
       <h1 style="text-align:center;">#LetsHashItOut</h1>
 
       <div style="font-size: 32px; text-align: center;">
@@ -27,7 +28,9 @@
   <div id="Instr" style="opacity: 1; display: none;">
     <div style="font-size: 25px; text-align: center;">
       <h1>Instructions</h1>
-      <p>Enter instructions here</p>
+      <p>Join a lobby with 3 to 6 friends and face off in a Twitter tussle for the most viral hashtag!</p>
+      <p> Read the tweet on the screen and come up with the best hashtag you can imagine.</p>
+      <p> Vote on which hashtag you think is good enough to go viral and see if you can #WIN.</p>
       <button onclick="goToSplashScreen()">Back</button>
     </div>
   </div>
@@ -69,7 +72,7 @@
           <p >Player Name 5</p><br>
           <p >Player Name 6</p><br>
       </div> -->
-
+      <br>
       <button style="margin-left: 47.5%" onclick="goToAnswer()">Start Game</button>
     </div>
     <br>
@@ -77,12 +80,13 @@
 
       <br>
       <div style="font-size: 32px; text-align: center;">
-        <p style="margin-left: 32.5%; border: 5px solid black; background: white; color: #14171A; width: 500px; height: 200px;">One time at a drive-thru I was placing a long order, and at the end of it I realized I was talking to a garbage can.</p>
+        <p style="margin-left: 34.5%; border: 5px solid black; background: white; color: #14171A; width: 500px; height: 200px;">One time at a drive-thru I was placing a long order, and at the end of it I realized I was talking to a garbage can.</p>
         <form id = "answerForm" action="">
-          <p># <input id="htag" maxlength="16" style="height: 50px; width: 285px; font-size: 32px;" type="text"><button>Send</button><br></p>
+          <p># <input id="htag" maxlength="16" style="height: 50px; width: 285px; font-size: 32px;" type="text">
+            <br><br>
+            <button onclick="goToVote()">Submit</button><br></p>
         </form>
         <!--<p># <input maxlength="25" style="height: 50px; width: 450px; font-size: 32px;" type="text"><br></p> -->
-        <button onclick="goToVote()">Submit</button>
       </div>
     </div>
 
@@ -123,8 +127,8 @@
 
       <br>
       <br>
-
-      <button style="margin-left: 45.5%" onclick="goToScoreboard()">Submit Answer</button>
+      <br>
+      <button id="voteButton" style="margin-left: 47.0%;" onclick="goToScoreboard()">Continue</button>
     </div>
 
     <div id="Scoreboard" style="opacity: 1; display: none">
