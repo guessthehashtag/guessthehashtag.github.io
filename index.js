@@ -59,7 +59,7 @@ io.on('connection', function(socket){
   //console.log('user ' + user1.id + ' connected');
   //playerCount = playerCount + 1;
   socket.on('disconnect', function(){
-    for (var i = users.length-1; i > 0; i = i-1) {
+    for (var i = users.length-1; i >= 0; i = i-1) {
         //var i = 1
         //var j = i +1
         if (playerCount == i) {
